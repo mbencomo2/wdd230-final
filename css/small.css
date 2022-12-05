@@ -1,0 +1,285 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  --Rich-Black: #073B3A;
+  --Bottle-Green: #0B6E4F;
+  --Green-Pigment: #08A045;
+  --Mantis: #6BBF59;
+  --Gold-Crayola: #DDB771;
+  --offwhite: #eee;
+
+  --heading-font: 'Titillium Web', 'Lucida Sans', Geneva, Verdana, sans-serif;
+  --paragraph-font: 'Roboto Slab', 'Courier New', Courier, monospace
+}
+
+/*--------------------- Semantic Styles ---------------------*/
+body {
+  font-size: 16pt;
+  background-color: var(--offwhite);
+}
+
+h1,
+h2 {
+  font-family: var(--heading-font);
+  margin: 0;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--paragraph-font);
+  margin: 0;
+}
+
+p {
+  font-family: var(--paragraph-font);
+  margin: 0;
+}
+
+a {
+  color: var(--Rich-Black);
+  text-decoration: none;
+  padding: .8rem;
+}
+
+a:hover {
+  color: var(--Gold-Crayola);
+}
+
+ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+ul li {
+  margin-top: .8rem;
+}
+
+/*--------------------- Header Styles ---------------------*/
+
+header {
+  position: sticky;
+  top: 0;
+}
+
+/*--------------------- Nav Styles ---------------------*/
+nav {
+  background-color: var(--Mantis);
+  padding: .5rem 1rem;
+  min-height: 5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: none;
+  width: 100%;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li {
+  border-bottom: var(--Rich-Black);
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  font-family: var(--heading-font);
+  padding: .8rem;
+  color: var(--Rich-Black);
+  border-top: 1px solid var(--Bottle-Green);
+}
+
+nav ul li a:hover {
+  cursor: pointer;
+  background-color: var(--Bottle-Green);
+}
+
+nav button {
+  background: transparent;
+  border: none;
+  color: var(--Rich-Black);
+}
+
+/*--------------------- Main Styles ---------------------*/
+main {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+/*--------------------- Footer Styles ---------------------*/
+footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--Mantis);
+  padding: .5rem;
+}
+
+/*--------------------- Class Styles ---------------------*/
+.logo {
+  width: 100px;
+  border-radius: 25px;
+}
+.breakRow, .breakRowNav {
+  width: 100%;
+  height: 0;
+}
+
+.active a {
+  background-color: var(--Bottle-Green);
+  color: var(--Gold-Crayola);
+}
+
+.open {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.rowImg {
+  width: 50%;
+}
+
+.rowContent {
+  padding: .5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+}
+.rowContent button {
+  padding: .8rem;
+  border: none;
+  background-color: var(--Bottle-Green);
+  color: var(--Gold-Crayola);
+  font-family: var(--heading-font);
+  font-size: 16pt;
+}
+
+.rowContent button:hover {
+  background-color: var(--Green-Pigment);
+}
+
+/*--------------------- ID Styles ---------------------*/
+#navBtn span:nth-child(1) {
+  display: block;
+  font-size: 3rem;
+}
+
+#navBtn span:nth-child(2) {
+  display: none;
+  font-size: 3rem;
+}
+
+#navBtn.open span:nth-child(1) {
+  display: none;
+}
+
+#navBtn.open span:nth-child(2) {
+  display: block;
+}
+
+#hero {
+  background: lightgreen url('../images/hero.jpg') no-repeat center;
+  background-size: cover;
+  display: grid;
+  grid-template-areas: 
+  'title'
+  'social';
+  grid-template-rows: 1fr 1fr;
+  padding: .8rem;
+  text-align: center;
+  min-height: 25rem;
+}
+#hero div {
+  grid-area: title;
+  align-self: flex-end;
+  color: var(--Gold-Crayola);
+  text-shadow: 2px 2px 2px var(--Green-Pigment);
+  margin-bottom: 0;
+}
+#hero #social {
+  grid-area: social;
+  align-self: flex-start;
+  padding: .8rem;
+}
+
+#weather, #forecast {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 3rem;
+  margin: .5rem auto;
+  border: 1px solid var(--Green-Pigment);
+}
+
+#weatherDetails {
+  text-align: center;
+  font-family: var(--paragraph-font);
+  margin-left: .5rem;
+}
+
+#weatherDetails li {
+  margin-top: .2rem;
+}
+
+#weatherSprite {
+  width: 100px;
+  height: 100px;
+  background-color: var(--Gold-Crayola);
+}
+
+#forecasts {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+#forecasts div:nth-child(even) {
+  border-top: 1px solid var(--Rich-Black);
+  border-bottom: 1px solid var(--Rich-Black);
+}
+
+#forecasts div {
+  padding: .4rem;
+}
+
+#forecasts img {
+ padding: .5rem;
+ background-color: var(--Gold-Crayola);
+}
+
+#contactInfo {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}

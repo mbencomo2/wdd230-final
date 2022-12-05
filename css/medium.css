@@ -1,0 +1,63 @@
+@media screen and (min-width: 47rem) {
+  /*--------------------- Semantic Styles ---------------------*/
+
+
+  /*--------------------- Header Styles ---------------------*/
+
+
+  /*--------------------- Nav Styles ---------------------*/
+  nav ul li a {
+    border: none;
+  }
+
+
+  /*--------------------- Main Styles ---------------------*/
+
+
+  /*--------------------- Footer Styles ---------------------*/
+
+
+  /*--------------------- Class Styles ---------------------*/
+  .breakRowNav {
+    display: none;
+  }
+
+  .rowImg {
+    width: 40%;
+  }
+
+  .rowContent {
+    width: 60%;
+  }
+
+  .rowContent button {
+    font-size: 20pt;
+  }
+
+  /*--------------------- ID Styles ---------------------*/
+  #hero div {
+    font-size: 2rem;
+  }
+  
+  #navBtn {
+    display: none;
+  }
+
+  #primaryNav {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 60%;
+  }
+
+  #forecasts {
+    flex-flow: row wrap;
+  }
+
+  #forecasts div:nth-child(even) {
+    border: none;
+  }
+
+  #forecasts div {
+    margin: 0 .8rem;
+  }
+}
