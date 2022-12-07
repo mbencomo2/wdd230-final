@@ -1,6 +1,17 @@
 @media screen and (min-width: 47rem) {
-  /*--------------------- Semantic Styles ---------------------*/
 
+  /*--------------------- Semantic Styles ---------------------*/
+  form {
+    width: 80%;
+  }
+
+  input {
+    max-width: 70%;
+  }
+
+  textarea {
+    width: 70%;
+  }
 
   /*--------------------- Header Styles ---------------------*/
 
@@ -10,12 +21,17 @@
     border: none;
   }
 
+  nav ul li:nth-child(even) {
+    border: none;
+  }
 
   /*--------------------- Main Styles ---------------------*/
 
 
   /*--------------------- Footer Styles ---------------------*/
-
+  footer {
+    flex-direction: row;
+  }
 
   /*--------------------- Class Styles ---------------------*/
   .breakRowNav {
@@ -38,7 +54,7 @@
   #hero div {
     font-size: 2rem;
   }
-  
+
   #navBtn {
     display: none;
   }
@@ -46,7 +62,7 @@
   #primaryNav {
     display: flex;
     flex-flow: row nowrap;
-    width: 60%;
+    width: 70%;
   }
 
   #forecasts {
