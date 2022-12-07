@@ -106,10 +106,10 @@ legend {
 }
 
 input {
-  background-color: #b3dac3;
+  background-color: #00000020;
   padding: 5px;
   margin: var(--margin-medium);
-  color: var(--Rich-Black);
+  color: black;
   border: 3px solid var(--Rich-Black);
   border-radius: var(--border-radius);
   width: 90%;
@@ -117,15 +117,23 @@ input {
 
 input:valid {
   border-color: blue;
+  background-color: #0000ff20;
 }
 
 input:invalid {
   border-color: red;
+  background-color: #ff000020;
+}
+
+select {
+  border-radius: var(--border-radius);
+  border: 3px solid var(--Green-Pigment);
+  margin: var(--margin-thick) 0;
 }
 
 textarea {
-  background-color: #b3dac3;
-  border: 3px solid var(--Rich-Black);
+  background-color: var(--offwhite);
+  border: 3px solid black;
   border-radius: var(--border-radius);
   width: 90%;
 }
@@ -300,8 +308,8 @@ footer {
 #hero div {
   grid-area: title;
   align-self: flex-end;
-  color: var(--Gold-Crayola);
-  text-shadow: 2px 2px 2px var(--Green-Pigment);
+  color: #3371f5;
+  text-shadow: 2px 2px 2px var(--Gold-Crayola);
   margin-bottom: 0;
 }
 

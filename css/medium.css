@@ -76,4 +76,9 @@
   #forecasts div {
     margin: 0 .8rem;
   }
+
+  #orderDetails {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
