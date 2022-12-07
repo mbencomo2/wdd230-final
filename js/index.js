@@ -1,7 +1,9 @@
+//Hamburger Button
 document.getElementById('navBtn').addEventListener('click', () => {
   document.getElementById('primaryNav').classList.toggle('open');
   document.getElementById('navBtn').classList.toggle('open');
 })
+//Load Weather Data
 const date = new Date();
 const key = '39bef332b3242a9fe5c82f1b824a81f9';
 const lat = 33.16;
