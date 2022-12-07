@@ -31,7 +31,6 @@ async function getForecast() {
 }
 
 function outputWeather(data) {
-  console.log(data);
   const words = data.weather[0].description.split(" ");
   const description = words.map((word) => { return word[0].toUpperCase() + word.substring(1) }).join(" ");
 
@@ -42,7 +41,6 @@ function outputWeather(data) {
 }
 
 function outputForecast(data) {
-  console.log(data);
   let index = 0;
   let day = date.getUTCDate();
   data.list.forEach((forecast) => {
