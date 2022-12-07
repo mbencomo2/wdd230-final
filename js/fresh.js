@@ -85,22 +85,6 @@ function displayOrder(fruits) {
   document.getElementById('orderDetails').appendChild(section);
 }
 
-//Submit form only when all inputs are valid
-const form = document.querySelector('form');
-form.addEventListener("change", () => {
-  if (form.checkValidity()) {
-    document.getElementById('invalidForm').style = 'display:none;';
-  }
-  else if (!form.checkValidity()) {
-    document.getElementById('invalidForm').style = 'display:block;';
-  }
-});
-document.getElementById('submitBtn').addEventListener('click', () => {
-  if (form.checkValidity()) {
-    getNutrition();
-  }
-});
-
 //Hamburger Button Listener
 document.getElementById('navBtn').addEventListener('click', () => {
   document.getElementById('primaryNav').classList.toggle('open');
@@ -112,3 +96,23 @@ const date = new Date();
 const fruitURL = "https://brotherblazzard.github.io/canvas-content/fruit.json";
 document.getElementById('copyright').textContent = date.getFullYear();
 getfruit();
+
+//Display help text when the form will not validate
+const form = document.querySelector('form');
+form.addEventListener("change", () => {
+  if (form.checkValidity()) {
+    document.getElementById('invalidForm').style = 'display:none;';
+    document.getElementById('submitBtn').disabled = !form.checkValidity();
+  }
+  else if (!form.checkValidity()) {
+    document.getElementById('invalidForm').style = 'display:block;';
+    document.getElementById('submitBtn').disabled = form.checkValidity();
+  }
+});
+
+//Event Listener for Submit Button
+document.getElementById('submitBtn').addEventListener('click', () => {
+  if (form.checkValidity()) {
+    getNutrition();
+  }
+});
