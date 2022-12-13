@@ -1,3 +1,4 @@
+import { lazyLoader } from "./lazyload.js";
 async function getWeather() {
   //Fetch the data and await the response
   const response = await fetch(weatherURL);
@@ -52,7 +53,8 @@ function outputForecast(data) {
       //Fill in the data and set the needed attributes
       heading.innerHTML = `${getMonth(date.getMonth())} ${day}`;
       temp.innerHTML = `${forecast.main.temp.toFixed(0)}&deg;F`;
-      icon.setAttribute('src', `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`);
+      icon.setAttribute('src', 'https://via.placeholder.com/50')
+      icon.setAttribute('data-src', `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`);
       icon.setAttribute('alt', description);
       icon.setAttribute('loading', 'lazy');
 
@@ -68,6 +70,9 @@ function outputForecast(data) {
     //Update the index to keep track of where we are in the list
     index += 1;
   });
+
+  //Lazy load images now that all the images are present
+  lazyLoader.loadImgs();
 };
 
 function getMonth(number) {
@@ -114,7 +119,7 @@ function getOrders() {
 document.getElementById('navBtn').addEventListener('click', () => {
   document.getElementById('primaryNav').classList.toggle('open');
   document.getElementById('navBtn').classList.toggle('open');
-})
+});
 
 //Set the number of drinks ordered from local storage
 document.getElementById('drinks').innerText = getOrders();
