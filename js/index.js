@@ -1,39 +1,29 @@
-//Hamburger Button
-document.getElementById('navBtn').addEventListener('click', () => {
-  document.getElementById('primaryNav').classList.toggle('open');
-  document.getElementById('navBtn').classList.toggle('open');
-})
-//Load Weather Data
-const date = new Date();
-const key = '39bef332b3242a9fe5c82f1b824a81f9';
-const lat = 33.16;
-const lon = -117.33;
-const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`;
-const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`
-document.getElementById('copyright').textContent = date.getFullYear();
-getWeather();
-getForecast();
-
 async function getWeather() {
+  //Fetch the data and await the response
   const response = await fetch(weatherURL);
   if (response.ok) {
+    //Store the response as a json object
     const data = await response.json();
     outputWeather(data);
   }
 };
 
 async function getForecast() {
+  //Fetch the data and await the response
   const response = await fetch(forecastURL);
   if (response.ok) {
+    //Store the response as a json object
     const data = await response.json();
     outputForecast(data);
   }
 }
 
 function outputWeather(data) {
+  //Format the weather description to capitalize the words
   const words = data.weather[0].description.split(" ");
   const description = words.map((word) => { return word[0].toUpperCase() + word.substring(1) }).join(" ");
 
+  //Fill in elements with the data fetched
   document.getElementById('temperature').textContent = data.main.temp.toFixed(0);
   document.getElementById('description').textContent = description;
   document.getElementById('humidity').textContent = data.main.humidity;
@@ -41,33 +31,47 @@ function outputWeather(data) {
 }
 
 function outputForecast(data) {
+  //Index to keep track of what list entry
   let index = 0;
+  //Get today's date
   let day = date.getUTCDate();
+
+  //For each hour in the forecast data
   data.list.forEach((forecast) => {
+    //If index % 8 == 0 it is the next day since forecast lists data in 3 hour snapshots
     if (index % 8 == 0) {
+      //Create the elements we need
       const div = document.createElement('div');
       const heading = document.createElement('h4');
       const icon = document.createElement('img');
       const temp = document.createElement('p');
+      //Format the weather description to capitalize the words
       const words = forecast.weather[0].description.split(" ");
       const description = words.map((word) => { return word[0].toUpperCase() + word.substring(1) }).join(" ");
 
+      //Fill in the data and set the needed attributes
       heading.innerHTML = `${getMonth(date.getMonth())} ${day}`;
       temp.innerHTML = `${forecast.main.temp.toFixed(0)}&deg;F`;
       icon.setAttribute('src', `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`);
       icon.setAttribute('alt', description);
       icon.setAttribute('loading', 'lazy');
+
+      //Append the elements we created to the HTML Document
       div.appendChild(heading);
       div.appendChild(icon);
       div.appendChild(temp);
       document.getElementById('forecasts').appendChild(div);
+
+      //Increment for the next day
       day += 1;
     }
+    //Update the index to keep track of where we are in the list
     index += 1;
   });
 };
 
 function getMonth(number) {
+  //Return the name of the month
   switch (number) {
     case 1:
       return 'January';
@@ -95,3 +99,39 @@ function getMonth(number) {
       return 'December';
   }
 }
+
+function getOrders() {
+  //Find numOrders in storage and retrieve its value, otherwise we return a string
+  if ('numOrders' in localStorage) {
+    return `${localStorage.getItem('numOrders')} Drink(s)`
+  }
+  else {
+    return 'No orders yet!'
+  }
+}
+
+//Hamburger Button
+document.getElementById('navBtn').addEventListener('click', () => {
+  document.getElementById('primaryNav').classList.toggle('open');
+  document.getElementById('navBtn').classList.toggle('open');
+})
+
+//Set the number of drinks ordered from local storage
+document.getElementById('drinks').innerText = getOrders();
+
+//Set the Copyright year
+const date = new Date();
+document.getElementById('copyright').textContent = date.getFullYear();
+
+//Set the Last Modified Date
+document.getElementById('lastModified').innerText = document.lastModified;
+
+//Set all the data we need to load weather data
+const key = '39bef332b3242a9fe5c82f1b824a81f9';
+const lat = 33.16;
+const lon = -117.33;
+const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`;
+const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`
+//Load Weather Data
+getWeather();
+getForecast();
