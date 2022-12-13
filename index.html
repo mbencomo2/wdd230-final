@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="css/large.css">
 
   <!-- scripts -->
-  <script src="./js/index.js" defer></script>
+  <script src="./js/index.js" type="module"></script>
 </head>
 
 <body>
@@ -97,7 +97,7 @@
       </div>
     </section>
     <section class="row">
-      <img src="./images/carlsbad.jpg" alt="Image of Carlsbad" class="rowImg" loading="lazy">
+      <img src="https://via.placeholder.com/240x360" data-src="./images/carlsbad.jpg" alt="Image of Carlsbad" class="rowImg" loading="lazy">
       <div class="rowContent">
         <h2>Carlsbad, CA</h2>
         <p>Our trucks serve most of Southern California, including Las Angeles and
@@ -110,7 +110,7 @@
         <p>Pick your favorite fruits and we will make your vision come to life!</p>
         <button type="button" onclick="window.location.href='fresh.html';">Make it Yours</button>
       </div>
-      <img src="./images/fruitDrink.jpeg" alt="Image of a fruit drink" class="rowImg" loading="lazy">
+      <img src="https://via.placeholder.com/240x360" data-src="./images/fruitDrink.jpeg" alt="Image of a fruit drink" class="rowImg" loading="lazy">
     </section>
     <section id="contactInfo">
       <h2>Contact Us &#128235;</h2>
@@ -145,6 +145,7 @@
   <footer>
     <a href="index.html"><img class="logo" src="./images/logo.png" alt="Logo" loading="lazy"></a>
     <p>&copy;<span id="copyright"></span></p>
+    <p>Last Modified: <span id="lastModified"></span></p>
     <div id="social">
       <a href="https://facebook.com"><svg enable-background="new 0 0 32 32" height="32" id="Layer_1" version="1.1"
           viewBox="0 0 32 32" width="32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
@@ -189,14 +190,7 @@
           </g>
         </svg></a>
     </div>
-    <p>Last Modified: <span id="lastModified"></span></p>
-    <div>
-      <ul id="quickLinks">
-        <li><a href="#"><b>Home</b></a></li>
-        <li><a href="#"><b>Fresh Drinks</b></a></li>
-        <li><a href="#"><b>About Us</b></a></li>
-      </ul>
-    </div>
+    <p>CSS Normalize &copy;<a href="https://github.com/necolas/normalize.css">Nicolas Gallagher</a></p>
     <div id="toTop">
       <a href="#">^</a>
     </div>
