@@ -14,10 +14,25 @@
     margin: 0 auto;
   }
   /*--------------------- Footer Styles ---------------------*/
+  footer {
+    flex-direction: row;
+  }
 
   /*--------------------- Class Styles ---------------------*/
   .logo {
     width: 150px;
+  }
+
+  .row {
+    width: 90%;
+  }
+
+  .rowImg {
+    width: 25%;
+  }
+
+  .rowContent {
+    width: 75%;
   }
 
   /*--------------------- ID Styles ---------------------*/

@@ -59,7 +59,8 @@ a {
 }
 
 a:hover {
-  color: var(--Gold-Crayola);
+  color: var(--Rich-Black);
+  cursor: pointer;
 }
 
 ul {
@@ -71,12 +72,14 @@ ul li {
   margin-top: .8em;
 }
 
-button, #submitBtn {
+button,
+#submitBtn {
   border-radius: var(--border-radius);
   box-shadow: 2px 2px 2px var(--Mantis);
 }
 
-button:hover, #submitBtn:hover {
+button:hover,
+#submitBtn:hover {
   background-color: var(--Green-Pigment);
 }
 
@@ -89,7 +92,10 @@ form {
 }
 
 fieldset {
-  border: 5px solid var(--Bottle-Green);
+  border-left: 5px solid var(--Bottle-Green);
+  border-right: 5px solid var(--Bottle-Green);
+  border-top: none;
+  border-bottom: none;
   border-radius: 3px;
   background-color: var(--offwhite);
   padding: var(--margin-medium);
@@ -99,7 +105,7 @@ fieldset {
 
 legend {
   padding: 0 var(--margin-medium);
-  background-color: #b3dac3;
+  background-color: var(--offwhite);
   border-radius: var(--border-radius);
   font-size: 1.2em;
   font-weight: bold;
@@ -110,32 +116,53 @@ input {
   padding: 5px;
   margin: var(--margin-medium);
   color: black;
-  border: 3px solid var(--Rich-Black);
+  border-left: 5px solid var(--Rich-Black);
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
   border-radius: var(--border-radius);
   width: 90%;
 }
 
 input:valid {
   border-color: blue;
-  background-color: #0000ff20;
+  background-color: #0000ff10;
 }
 
 input:invalid {
   border-color: red;
-  background-color: #ff000020;
+  background-color: #ff000010;
 }
 
 select {
   border-radius: var(--border-radius);
-  border: 3px solid var(--Green-Pigment);
+  border-left: 5px solid var(--Green-Pigment);
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
   margin: var(--margin-thick) 0;
+}
+
+select:invalid {
+  border-color: red;
+}
+
+select:valid {
+  border-color: blue;
 }
 
 textarea {
   background-color: var(--offwhite);
   border: 3px solid black;
   border-radius: var(--border-radius);
+  padding: var(--margin-thin);
   width: 90%;
+}
+
+iframe {
+  width: 90%;
+  margin: var(--margin-medium) auto;
+  border-radius: var(--border-radius);
 }
 
 /*--------------------- Header Styles ---------------------*/
@@ -144,7 +171,7 @@ textarea {
 nav {
   background-color: var(--Mantis);
   padding: .0 1em;
-  min-height:var(--margin-medium);
+  min-height: var(--margin-medium);
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -176,7 +203,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  cursor: pointer;
+  color: var(--Gold-Crayola);
   background-color: var(--Bottle-Green);
 }
 
@@ -228,10 +255,12 @@ footer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  margin: var(--margin-thick) auto;
 }
 
 .rowImg {
   width: 50%;
+  border-radius: var(--border-radius);
 }
 
 .rowContent {
@@ -265,13 +294,16 @@ footer {
 
 /*--------------------- ID Styles ---------------------*/
 #toTop {
-  position: absolute;
-  bottom: 2em;
-  right: 2em;
-  width: 50px;
-  height: 50px;
+  position: fixed;
+  bottom: .5em;
+  right: .5em;
+  width: 52px;
+  height: 60px;
+  font-size: 1em;
   border-radius: var(--border-radius);
-
+  background-color: var(--Gold-Crayola);
+  color: var(--Gold-Crayola);
+  display: flex;
 }
 
 #navBtn span:nth-child(1) {
@@ -295,6 +327,7 @@ footer {
 #hero {
   background: lightgreen url('../images/hero.jpg') no-repeat center;
   background-size: cover;
+  border-radius: var(--border-radius);
   display: grid;
   grid-template-areas:
     'title'
@@ -305,11 +338,13 @@ footer {
   min-height: var(--margin-medium);
 }
 
-#hero div {
+#hero #title {
   grid-area: title;
   align-self: flex-end;
-  color: #3371f5;
-  text-shadow: 2px 2px 2px var(--Gold-Crayola);
+  color: var(--offwhite);
+  background-color: rgba(8, 160, 69, 0.9);
+  padding: var(--margin-thin);
+  border-radius: var(--border-radius);
   margin-bottom: 0;
 }
 
@@ -317,6 +352,19 @@ footer {
   grid-area: social;
   align-self: flex-start;
   padding: .8em;
+}
+
+#numOrdered {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 1em var(--margin-thin);
+  margin: var(--margin-medium) auto;
+  border: 3px solid var(--Green-Pigment);
+  border-radius: var(--border-radius);
+  min-height: 8em;
 }
 
 #weather,
@@ -347,6 +395,7 @@ footer {
   width: 100px;
   height: 100px;
   background-color: var(--Gold-Crayola);
+  border-radius: var(--border-radius);
 }
 
 #forecasts {
@@ -372,11 +421,15 @@ footer {
 }
 
 #contactInfo {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  background-color: #DDB771;
+  border-radius: var(--border-radius);
 }
 
 #copyright {
@@ -392,6 +445,7 @@ footer {
 }
 
 #invalidForm {
+  display: none;
   padding-left: var(--margin-medium);
   color: red;
 }
@@ -413,7 +467,8 @@ footer {
 }
 
 #order dl {
-  border: 3px solid var(--Green-Pigment);
+  border-left: 3px solid var(--Green-Pigment);
+  border-right: 3px solid var(--Green-Pigment);
   border-radius: var(--border-radius);
   background-color: var(--offwhite);
   padding: 2%;
@@ -422,4 +477,8 @@ footer {
 
 #thankYou {
   padding: var(--margin-medium);
+}
+
+#aboutUs .row {
+  display: block;
 }
