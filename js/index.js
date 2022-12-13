@@ -43,7 +43,7 @@ function outputForecast(data) {
     if (index % 8 == 0) {
       //Create the elements we need
       const div = document.createElement('div');
-      const heading = document.createElement('h4');
+      const heading = document.createElement('p');
       const icon = document.createElement('img');
       const temp = document.createElement('p');
       //Format the weather description to capitalize the words
@@ -51,7 +51,7 @@ function outputForecast(data) {
       const description = words.map((word) => { return word[0].toUpperCase() + word.substring(1) }).join(" ");
 
       //Fill in the data and set the needed attributes
-      heading.innerHTML = `${getMonth(date.getMonth())} ${day}`;
+      heading.innerHTML = `<b>${getMonth(date.getMonth())} ${day}</b>`;
       temp.innerHTML = `${forecast.main.temp.toFixed(0)}&deg;F`;
       icon.setAttribute('src', 'https://via.placeholder.com/50')
       icon.setAttribute('data-src', `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`);
