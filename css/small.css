@@ -72,6 +72,10 @@ ul li {
   margin-top: .8em;
 }
 
+img[data-src] {
+  filter: blur(.2rem);
+}
+
 button,
 #submitBtn {
   border-radius: var(--border-radius);
