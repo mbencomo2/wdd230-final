@@ -134,6 +134,7 @@ document.getElementById('lastModified').innerText = document.lastModified;
 
 //Event Listener for Submit Button
 document.getElementById('submitBtn').addEventListener('click', () => {
+  const form = document.querySelector('form');
   if (form.checkValidity()) {
     document.getElementById('invalidForm').style = 'display:none;';
     document.getElementById('submitBtn').disabled = !form.checkValidity();
