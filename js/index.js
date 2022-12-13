@@ -35,7 +35,10 @@ function outputForecast(data) {
   //Index to keep track of what list entry
   let index = 0;
   //Get today's date
-  let day = date.getUTCDate();
+  const date = new Date()
+  let day = date.getDate();
+  //Array with month names
+  const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
   //For each hour in the forecast data
   data.list.forEach((forecast) => {
@@ -51,7 +54,7 @@ function outputForecast(data) {
       const description = words.map((word) => { return word[0].toUpperCase() + word.substring(1) }).join(" ");
 
       //Fill in the data and set the needed attributes
-      heading.innerHTML = `<b>${getMonth(date.getMonth())} ${day}</b>`;
+      heading.innerHTML = `<b>${month[date.getMonth()]} ${day}</b>`;
       temp.innerHTML = `${forecast.main.temp.toFixed(0)}&deg;F`;
       icon.setAttribute('src', 'https://via.placeholder.com/50')
       icon.setAttribute('data-src', `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`);
@@ -74,36 +77,6 @@ function outputForecast(data) {
   //Lazy load images now that all the images are present
   lazyLoader.loadImgs();
 };
-
-function getMonth(number) {
-  //Return the name of the month
-  switch (number) {
-    case 1:
-      return 'January';
-    case 2:
-      return 'February';
-    case 3:
-      return 'March';
-    case 4:
-      return 'April';
-    case 5:
-      return 'May';
-    case 6:
-      return 'June';
-    case 7:
-      return 'July';
-    case 8:
-      return 'August';
-    case 9:
-      return 'September';
-    case 10:
-      return 'October';
-    case 11:
-      return 'November';
-    case 12:
-      return 'December';
-  }
-}
 
 function getOrders() {
   //Find numOrders in storage and retrieve its value, otherwise we return a string
