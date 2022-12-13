@@ -35,6 +35,11 @@
     display: none;
   }
 
+  .row {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
   .rowImg {
     width: 40%;
   }

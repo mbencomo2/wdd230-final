@@ -252,14 +252,13 @@ footer {
 }
 
 .row {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 50% 1fr;
   margin: var(--margin-thick) auto;
 }
 
 .rowImg {
-  width: 50%;
+  max-width: 100%;
   border-radius: var(--border-radius);
 }
 
@@ -270,7 +269,6 @@ footer {
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  width: 50%;
 }
 
 .rowContent button {
